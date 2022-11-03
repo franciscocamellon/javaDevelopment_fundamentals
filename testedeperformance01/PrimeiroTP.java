@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class PrimeiroTP {
 
@@ -44,6 +45,11 @@ public class PrimeiroTP {
 		studentNames = new String[LIMIT];
 		firstGrade = new float[LIMIT];
 		secondGrade = new float[LIMIT];
+
+        Scanner in = new Scanner(System.in);
+
+        String userOption;
+		int indexPosition = 0;
 		
 	}
 }
