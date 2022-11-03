@@ -60,7 +60,49 @@ public class PrimeiroTP {
 			System.out.print("Informe a opção desejada: ");						
 			userOption = in.next();
 			
-			
+			switch (userOption) {
+			case "1":
+				if(indexPosition < LIMIT) {
+					System.out.print("Informe o nome do aluno: ");	
+					studentNames[indexPosition] = in.next();
+	
+					System.out.print("Informe a nota da AV1: ");	
+					firstGrade[indexPosition] = in.nextFloat();
+	
+					System.out.print("Informe a nota da AV2: ");	
+					secondGrade[indexPosition] = in.nextFloat();
+					
+					printReport(indexPosition);
+
+					indexPosition++;
+				} else {
+					System.out.println("Limite de alunos cadastrados atingido! Impossível cadastrar um novo aluno.");
+				}
+				break;
+
+			case "2":
+				System.out.print("Informe o código do aluno para exibição do boletim: ");						
+				int id = in.nextInt();
+
+				if(id >= 0 && id < indexPosition) {
+					printReport(id);
+				} else {
+					System.out.println("O código ["+id+"] é inválido!!!");
+				}
+				break;
+
+			case "3":
+				printReport();
+				break;
+
+			case "4":
+				System.out.println("Saída");
+				break;
+
+			default:
+				System.out.println("A opção ["+userOption+"] é inválida");
+				break;
+			}
 		} while (!"4".equalsIgnoreCase(userOption));
 				
 		System.out.println("Processamento finalizado!!!");
