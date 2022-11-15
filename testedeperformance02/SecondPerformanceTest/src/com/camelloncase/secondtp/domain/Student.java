@@ -2,27 +2,26 @@ package com.camelloncase.secondtp.domain;
 
 import com.camelloncase.secondtp.auxiliar.Constants;
 
-public class Student {
-	
-	private String name;
+public class Student extends Person {
+
 	private float firstGrade;
 	private float secondGrade;
 	
 	public Student() {
-		this.name = Constants.DEFAULT_NAME;
+		super();
 		this.firstGrade = Constants.DEFAULT_GRADE;
 		this.secondGrade = Constants.DEFAULT_GRADE;
 	}
 	
 	public Student(String name, float firstGrade, float secondGrade) {
-		this.name = name;
+		super.setName(name);
 		this.firstGrade = firstGrade;
 		this.secondGrade = secondGrade;
 	}
 	
 	@Override
 	public String toString() {
-		return name + " - " + firstGrade + " - " + secondGrade + " - " + calculateAverageGrade() + " - " + getStudentStatus();
+		return super.getName() + " - " + firstGrade + " - " + secondGrade + " - " + calculateAverageGrade() + " - " + getStudentStatus();
 	}
 	
 	public float calculateAverageGrade(){
@@ -42,16 +41,14 @@ public class Student {
 		} else {
 			return Constants.RETAKE_TEST;
 		}	
-	}	
-
-	public void setName(String name) {
-		this.name = name;
-		
 	}
 	
-	public String getName() {
-		return name;
-		
+	public void checkState() {
+		System.out.println(toString());
+	}
+	
+	public void checkState(int id) {
+		System.out.println("\n<" + id + "> " + toString() + "\n");
 	}
 
 	public void setFirstGrade(float grade) {
@@ -73,16 +70,4 @@ public class Student {
 		return secondGrade;
 		
 	}
-	
-	public void print() {
-		System.out.println(toString());
-	}
-	
-	public void printReport(int indice) {
-		System.out.println("<" + indice + "> " + toString());
-	}
-
-    
-
-
 }
