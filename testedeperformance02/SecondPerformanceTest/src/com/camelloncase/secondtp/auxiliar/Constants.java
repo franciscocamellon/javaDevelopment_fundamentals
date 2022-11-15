@@ -2,7 +2,13 @@ package com.camelloncase.secondtp.auxiliar;
 
 public class Constants {
 	
-	public final static String DEFAULT_NAME = "Student";
+	public final static String DEFAULT_NAME = "Person";
+	
+	public final static String DEFAULT_CLASSROOM = "Primeiro Ano";
+	
+	public final static String DEFAULT_SUBJECT = "Português";
+	
+	public final static Boolean DEFAULT_VACATION = false;
 	
 	public final static int LIMIT = 100;
 	
