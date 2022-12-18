@@ -1,6 +1,7 @@
 package com.camelloncase.thirdtp.domain;
 
 import com.camelloncase.thirdtp.auxiliar.Constants;
+import com.camelloncase.thirdtp.exceptions.GradeException;
 
 public class Student extends Person {
 
@@ -13,22 +14,22 @@ public class Student extends Person {
 		this.secondGrade = Constants.DEFAULT_GRADE;
 	}
 	
-	public Student(String name, float firstGrade, float secondGrade) {
-		super.setName(name);
-		this.firstGrade = firstGrade;
-		this.secondGrade = secondGrade;
+	public Student(String name, float firstGrade, float secondGrade) throws GradeException {
+		super(name);
+		setFirstGrade(firstGrade);
+		setSecondGrade(secondGrade);
 	}
 	
 	@Override
 	public String toString() {
-		return super.getName() + " - " + firstGrade + " - " + secondGrade + " - " + calculateAverageGrade() + " - " + getStudentStatus();
+		return super.toString() + " - " + firstGrade + " - " + secondGrade + " - " + calculateAverageGrade() + " - " + getStudentStatus();
 	}
 	
 	public float calculateAverageGrade(){
 		return (this.firstGrade + this.secondGrade) / 2;
 	}
 	
-	public String getStudentStatus(){
+	public String getStudentStatus() {
 		
 		float averageGrade = calculateAverageGrade();
 		
@@ -51,9 +52,12 @@ public class Student extends Person {
 		System.out.println("\n<" + id + "> " + toString() + "\n");
 	}
 
-	public void setFirstGrade(float grade) {
-		this.firstGrade = grade;
-		
+	public void setFirstGrade(float grade) throws GradeException {
+		if (grade > 10 || grade < 0) {
+			throw new GradeException("A nota não pode ser menor que zero ou maior que 10!");
+		} else {
+			this.firstGrade = grade;
+		}
 	}
 	
 	public float getFirstGrade() {
@@ -61,9 +65,12 @@ public class Student extends Person {
 		
 	}
 
-	public void setSecondGrade(float grade) {
-		this.secondGrade = grade;
-		
+	public void setSecondGrade(float grade) throws GradeException {
+		if (grade > 10 || grade < 0) {
+			throw new GradeException("A nota não pode ser menor que zero ou maior que 10!");
+		} else {
+			this.secondGrade = grade;
+		}		
 	}
 	
 	public float getSecondGrade() {

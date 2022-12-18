@@ -31,7 +31,7 @@ public class Teacher extends Person {
 	
 	@Override
 	public String toString() {
-		return super.getName() + " - " + this.classroom + " - " + this.subject + " - " + getVacation();
+		return super.toString() + " - " + this.classroom + " - " + this.subject + " - " + getVacation();
 	}
 	
 	public void checkState() {
