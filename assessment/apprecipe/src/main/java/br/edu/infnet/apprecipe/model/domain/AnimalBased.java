@@ -6,13 +6,13 @@ public class AnimalBased extends Ingredient {
 	private String meatForm;
 	private boolean exoticMeat;
 	
-	public AnimalBased(String name, double weight, double cost, boolean exoticMeat) {
+	public AnimalBased(String name, float weight, float cost, boolean exoticMeat) {
 		super(name, weight, cost);
 		this.exoticMeat = exoticMeat;
 	}
 
 	@Override
-	public double costCalculator() {
+	public float costCalculator() {
 		if (exoticMeat) {
 			return this.getCost() * this.getWeight() + 10;
 		}

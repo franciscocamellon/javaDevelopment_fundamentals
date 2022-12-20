@@ -6,13 +6,13 @@ public class PlantBased extends Ingredient {
 	private String form;
 	private String unit;
 
-	public PlantBased(String name, double weight, double cost, boolean organic) {
+	public PlantBased(String name, float weight, float cost, boolean organic) {
 		super(name, weight, cost);
 		this.organic = organic;
 	}
 
 	@Override
-	public double costCalculator() {
+	public float costCalculator() {
 		if (organic) {
 			return this.getCost() * this.getWeight() + 20;
 		}

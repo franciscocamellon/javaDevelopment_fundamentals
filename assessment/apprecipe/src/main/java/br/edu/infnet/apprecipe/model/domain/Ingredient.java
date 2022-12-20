@@ -3,16 +3,16 @@ package br.edu.infnet.apprecipe.model.domain;
 public abstract class Ingredient {
 	
 	private String name;
-	private double weight;
-	private double cost;
+	private float weight;
+	private float cost;
 	
-	public Ingredient(String name, double weight, double cost) {
+	public Ingredient(String name, float weight, float cost) {
 		this.name = name;
 		this.weight = weight;
 		this.cost = cost;
 	}
 	
-	public abstract double costCalculator();
+	public abstract float costCalculator();
 	
 	@Override
 	public String toString() {
@@ -31,11 +31,11 @@ public abstract class Ingredient {
 		return name;
 	}
 
-	public double getCost() {
+	public float getCost() {
 		return cost;
 	}
 
-	public double getWeight() {
+	public float getWeight() {
 		return weight;
 	}
 	

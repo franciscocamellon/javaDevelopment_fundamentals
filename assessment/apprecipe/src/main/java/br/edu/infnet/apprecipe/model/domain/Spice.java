@@ -6,13 +6,13 @@ public class Spice extends Ingredient {
 	private String taste;
 	private String color;
 
-	public Spice(String name, double weight, double cost, String color) {
+	public Spice(String name, float weight, float cost, String color) {
 		super(name, weight, cost);
 		this.color = color;
 	}
 
 	@Override
-	public double costCalculator() {
+	public float costCalculator() {
 		return this.getWeight() * this.getCost();
 	}
 	
