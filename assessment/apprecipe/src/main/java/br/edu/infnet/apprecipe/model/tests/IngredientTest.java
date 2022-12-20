@@ -6,11 +6,6 @@ public class IngredientTest {
 
 	public static void main(String[] args) {
 
-		Ingredient i1 = new Ingredient();
-		
-		Ingredient i2 = new Ingredient();
-		
-		Ingredient i3 = new Ingredient();
 
 	}
 
