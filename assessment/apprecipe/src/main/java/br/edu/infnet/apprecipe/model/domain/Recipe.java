@@ -16,6 +16,12 @@ public class Recipe {
 		requestDate = LocalDateTime.now();
 	}
 	
+	public void printReport() {
+		System.out.println("Receita: " + this);
+		System.out.println("Qtde Ingredientes: " + ingredients.size());
+		System.out.println("Chef: " + chef);
+	}
+	
 	@Override
 	public String toString() {
 
