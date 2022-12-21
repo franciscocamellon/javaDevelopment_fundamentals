@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.edu.infnet.apprecipe.model.exceptions.RecipeWithoutChefException;
+import br.edu.infnet.apprecipe.model.exceptions.RecipeWithoutIngredientsException;
+
 public class Recipe {
 	
 	private String name;
@@ -12,21 +15,35 @@ public class Recipe {
 	private Chef chef;
 	private List<Ingredient> ingredients;
 	
-	public Recipe() {
+	public Recipe(Chef chef, List<Ingredient> ingredients) throws RecipeWithoutChefException, RecipeWithoutIngredientsException {
+		
+		if (chef == null) {
+			throw new RecipeWithoutChefException("Não existe Chef associado a esta receita!");
+		}
+		
+		if (ingredients == null) {
+			throw new RecipeWithoutIngredientsException("Não existem ingredientes associados a esta receita!");
+		}
 		requestDate = LocalDateTime.now();
+		this.chef = chef;
+		this.ingredients = ingredients;
 	}
 	
 	public void printReport() {
 		System.out.println("Receita: " + this);
-		System.out.println("Qtde Ingredientes: " + ingredients.size());
 		System.out.println("Chef: " + chef);
+		System.out.println("Qtde Ingredientes: " + ingredients.size());
+		System.out.println("Ingredientes: ");
+		for (Ingredient ingredient : ingredients) {
+			System.out.println("- " + ingredient.getName());
+		}
 	}
 	
 	@Override
 	public String toString() {
 
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-		return String.format("%s,%s,%d,%s", name, chef, quantity, requestDate.format(format));
+		return String.format("%s;%s;%s;%s", name, chef.getRestaurant(), "Qtde:" + quantity, requestDate.format(format));
 	}
 
 	public String getName() {
@@ -49,16 +66,8 @@ public class Recipe {
 		return chef;
 	}
 
-	public void setChef(Chef chef) {
-		this.chef = chef;
-	}
-
 	public List<Ingredient> getIngredients() {
 		return ingredients;
-	}
-
-	public void setIngredients(List<Ingredient> ingredients) {
-		this.ingredients = ingredients;
 	}
 
 	public LocalDateTime getRequestDate() {
