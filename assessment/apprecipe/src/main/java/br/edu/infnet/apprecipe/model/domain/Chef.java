@@ -1,5 +1,7 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.ChefInvalidAttributesException;
+
 public class Chef {
 	
 	public String name;
@@ -7,7 +9,20 @@ public class Chef {
 	public String email;
 	
 	
-	public Chef(String name, String restaurant, String email) {
+	public Chef(String name, String restaurant, String email) throws ChefInvalidAttributesException {
+		
+		if (name == null || name.isBlank()) {
+			throw new ChefInvalidAttributesException("O nome do chef deve ser preenchido!");
+		}
+		
+		if (restaurant == null || restaurant.isBlank()) {
+			throw new ChefInvalidAttributesException("O nome do restaurante deve ser preenchido!");
+		}
+		
+		if (email == null || email.isBlank()) {
+			throw new ChefInvalidAttributesException("O email do chef deve ser preenchido!");
+		}
+		
 		this.name = name;
 		this.restaurant = restaurant;
 		this.email = email;
