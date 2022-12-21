@@ -1,12 +1,14 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
+
 public class PlantBased extends Ingredient {
 	
 	private boolean organic;
 	private String form;
 	private String unit;
 
-	public PlantBased(String name, float weight, float cost, boolean organic) {
+	public PlantBased(String name, float weight, float cost, boolean organic) throws ZeroCostException {
 		super(name, weight, cost);
 		this.organic = organic;
 	}

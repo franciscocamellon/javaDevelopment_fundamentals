@@ -1,12 +1,14 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
+
 public class AnimalBased extends Ingredient {
 
 	private String origin;
 	private String meatForm;
 	private boolean exoticMeat;
 	
-	public AnimalBased(String name, float weight, float cost, boolean exoticMeat) {
+	public AnimalBased(String name, float weight, float cost, boolean exoticMeat) throws ZeroCostException {
 		super(name, weight, cost);
 		this.exoticMeat = exoticMeat;
 	}
