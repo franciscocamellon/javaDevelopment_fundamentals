@@ -1,0 +1,10 @@
+R;Joao;Almeria;joao.almeria@email.com;Lasanha a bolonhesa;1
+A;Javali;1;30;true;Caça;Congelado
+A;Salmão;2;20;false;Pesca;Fresco
+A;Wagyu;1;200;false;Manejo;Refrigerado
+P;Alho poró;0.2f;20;false;Cru;Maço
+P;Brócolis;1;15;true;Cru;Maço
+P;Batata;1.5f;10;false;Pré-cozido;Kilo
+S;Páprica;0.1f;1;Avermelhado;Moído;Agridoce
+S;Pimenta do reino;0.15f;0.5f;Incolor;Moído;Apimentado
+S;Aniz estrelado;0.20f;1;Incolor;Fresco;Azedo
