@@ -1,5 +1,6 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public class PlantBased extends Ingredient {
@@ -8,7 +9,7 @@ public class PlantBased extends Ingredient {
 	private String form;
 	private String unit;
 
-	public PlantBased(String name, float weight, float cost, boolean organic) throws ZeroCostException {
+	public PlantBased(String name, float weight, float cost, boolean organic) throws ZeroCostException, NullOrEmptyAttributeException {
 		super(name, weight, cost);
 		this.organic = organic;
 	}

@@ -1,6 +1,7 @@
 package br.edu.infnet.apprecipe.model.tests;
 
 import br.edu.infnet.apprecipe.model.domain.Spice;
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public class SpiceTest {
@@ -12,7 +13,7 @@ public class SpiceTest {
 		sp1.setSpiceForm("Moído");
 		sp1.setTaste("Agridoce");
 		System.out.println(sp1);
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -21,7 +22,7 @@ public class SpiceTest {
 		sp2.setSpiceForm("Moído");
 		sp2.setTaste("Apimentado");
 		System.out.println(sp2);
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -30,7 +31,16 @@ public class SpiceTest {
 		sp3.setSpiceForm("Fresco");
 		sp3.setTaste("Azedo");
 		System.out.println(sp3);
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
+		
+		try {
+			Spice sp3 = new Spice(" ", 0.20f, 1, "Incolor");
+			sp3.setSpiceForm("Fresco");
+			sp3.setTaste("Azedo");
+			System.out.println(sp3);
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 	}

@@ -1,6 +1,7 @@
 package br.edu.infnet.apprecipe.model.tests;
 
 import br.edu.infnet.apprecipe.model.domain.AnimalBased;
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public class AnimalBasedTest {
@@ -14,7 +15,7 @@ public class AnimalBasedTest {
 			ab1.setMeatForm("Fresco");
 			ab1.toString();
 			System.out.println(ab1);
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -24,7 +25,7 @@ public class AnimalBasedTest {
 			ab2.setMeatForm("Congelado");
 			ab2.toString();
 			System.out.println(ab2);
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -34,7 +35,17 @@ public class AnimalBasedTest {
 			ab3.setMeatForm("Refrigerado");
 			ab3.toString();
 			System.out.println(ab3);
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
+		
+		try {
+			AnimalBased ab3 = new AnimalBased("", 1, 0, false);
+			ab3.setOrigin("Manejo");
+			ab3.setMeatForm("Refrigerado");
+			ab3.toString();
+			System.out.println(ab3);
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		

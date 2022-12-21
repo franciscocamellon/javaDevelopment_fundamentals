@@ -1,5 +1,6 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public class Spice extends Ingredient {
@@ -8,7 +9,7 @@ public class Spice extends Ingredient {
 	private String taste;
 	private String color;
 
-	public Spice(String name, float weight, float cost, String color) throws ZeroCostException {
+	public Spice(String name, float weight, float cost, String color) throws ZeroCostException, NullOrEmptyAttributeException {
 		super(name, weight, cost);
 		this.color = color;
 	}

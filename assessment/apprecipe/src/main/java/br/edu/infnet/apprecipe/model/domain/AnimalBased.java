@@ -1,5 +1,6 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public class AnimalBased extends Ingredient {
@@ -8,7 +9,7 @@ public class AnimalBased extends Ingredient {
 	private String meatForm;
 	private boolean exoticMeat;
 	
-	public AnimalBased(String name, float weight, float cost, boolean exoticMeat) throws ZeroCostException {
+	public AnimalBased(String name, float weight, float cost, boolean exoticMeat) throws ZeroCostException, NullOrEmptyAttributeException {
 		super(name, weight, cost);
 		this.exoticMeat = exoticMeat;
 	}

@@ -1,5 +1,6 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public abstract class Ingredient {
@@ -8,14 +9,17 @@ public abstract class Ingredient {
 	private float weight;
 	private float cost;
 	
-	public Ingredient(String name, float weight, float cost) throws ZeroCostException {
+	public Ingredient(String name, float weight, float cost) throws ZeroCostException, NullOrEmptyAttributeException {
 		
+		if (name == null || name.isBlank()) {
+			throw new NullOrEmptyAttributeException("O nome do ingrediente deve ser preenchido!");
+		}
 		if (cost == 0) {
-			throw new ZeroCostException("O custo do produto está zerado!");
+			throw new ZeroCostException("O custo do ingrediente está zerado!");
 		}
 		
 		if (cost < 0) {
-			throw new ZeroCostException("O custo do produto está negativo!");
+			throw new ZeroCostException("O custo do ingrediente está negativo!");
 		}
 		
 		this.name = name;	

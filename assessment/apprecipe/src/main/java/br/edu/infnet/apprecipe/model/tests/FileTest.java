@@ -2,11 +2,9 @@ package br.edu.infnet.apprecipe.model.tests;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,7 @@ import br.edu.infnet.apprecipe.model.domain.Ingredient;
 import br.edu.infnet.apprecipe.model.domain.PlantBased;
 import br.edu.infnet.apprecipe.model.domain.Recipe;
 import br.edu.infnet.apprecipe.model.domain.Spice;
-import br.edu.infnet.apprecipe.model.exceptions.ChefInvalidAttributesException;
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.RecipeWithoutChefException;
 import br.edu.infnet.apprecipe.model.exceptions.RecipeWithoutIngredientsException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
@@ -55,7 +53,7 @@ public class FileTest {
 							recipe = new Recipe(new Chef(fields[1], fields[2], fields[3]), ingredients);
 							recipe.setName(fields[4]);
 							recipe.setQuantity(Integer.valueOf(fields[5]));
-						} catch (ChefInvalidAttributesException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
+						} catch (NullOrEmptyAttributeException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
 							System.out.println("[ERRO] " + e.getMessage());
 						}
 						break;
@@ -68,7 +66,7 @@ public class FileTest {
 							
 							ingredients.add(animalBased);
 							
-						} catch (ZeroCostException e) {
+						} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 							System.out.println("[ERRO] " + e.getMessage());
 						}
 						break;
@@ -81,7 +79,7 @@ public class FileTest {
 							
 							ingredients.add(plantBased);
 							
-						} catch (ZeroCostException e) {
+						} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 							System.out.println("[ERRO] " + e.getMessage());
 						}
 						break;
@@ -94,7 +92,7 @@ public class FileTest {
 							
 							ingredients.add(spice);
 							
-							} catch (ZeroCostException e) {
+							} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 								System.out.println("[ERRO] " + e.getMessage());
 							}
 						break;

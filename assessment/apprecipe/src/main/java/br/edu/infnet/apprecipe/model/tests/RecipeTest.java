@@ -9,7 +9,7 @@ import br.edu.infnet.apprecipe.model.domain.Ingredient;
 import br.edu.infnet.apprecipe.model.domain.PlantBased;
 import br.edu.infnet.apprecipe.model.domain.Recipe;
 import br.edu.infnet.apprecipe.model.domain.Spice;
-import br.edu.infnet.apprecipe.model.exceptions.ChefInvalidAttributesException;
+import br.edu.infnet.apprecipe.model.exceptions.NullOrEmptyAttributeException;
 import br.edu.infnet.apprecipe.model.exceptions.RecipeWithoutChefException;
 import br.edu.infnet.apprecipe.model.exceptions.RecipeWithoutIngredientsException;
 import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
@@ -31,7 +31,7 @@ public class RecipeTest {
 			ingredients2.add(sp1);
 			ingredients4.add(sp1);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 			
@@ -45,7 +45,7 @@ public class RecipeTest {
 			ingredients3.add(sp2);
 			ingredients4.add(sp2);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 			
@@ -58,7 +58,7 @@ public class RecipeTest {
 			ingredients3.add(sp3);
 			ingredients4.add(sp3);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -70,7 +70,7 @@ public class RecipeTest {
 			
 			ingredients4.add(pb1);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -82,7 +82,7 @@ public class RecipeTest {
 			ingredients1.add(pb2);
 			ingredients4.add(pb2);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -94,7 +94,7 @@ public class RecipeTest {
 			ingredients2.add(pb3);
 			ingredients4.add(pb3);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -106,7 +106,7 @@ public class RecipeTest {
 			
 			ingredients4.add(ab1);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -118,7 +118,7 @@ public class RecipeTest {
 			ingredients1.add(ab2);
 			ingredients4.add(ab2);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -132,7 +132,7 @@ public class RecipeTest {
 			ingredients3.add(ab3);
 			ingredients4.add(ab3);
 			
-		} catch (ZeroCostException e) {
+		} catch (ZeroCostException | NullOrEmptyAttributeException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -141,7 +141,7 @@ public class RecipeTest {
 			r1.setName("Primeira receita");
 			r1.setQuantity(3);
 			r1.printReport();
-		} catch (ChefInvalidAttributesException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
+		} catch (NullOrEmptyAttributeException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -150,7 +150,7 @@ public class RecipeTest {
 			r2.setName("Segunda receita");
 			r2.setQuantity(4);
 			r2.printReport();
-		} catch (ChefInvalidAttributesException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
+		} catch (NullOrEmptyAttributeException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -159,7 +159,7 @@ public class RecipeTest {
 			r3.setName("Terceira receita");
 			r3.setQuantity(1);
 			r3.printReport();
-		} catch (ChefInvalidAttributesException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
+		} catch (NullOrEmptyAttributeException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -168,7 +168,7 @@ public class RecipeTest {
 			r4.setName("Quarta receita");
 			r4.setQuantity(1);
 			r4.printReport();
-		} catch (ChefInvalidAttributesException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
+		} catch (NullOrEmptyAttributeException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
@@ -188,7 +188,7 @@ public class RecipeTest {
 			r6.setName("Quarta receita");
 			r6.setQuantity(1);
 			r6.printReport();
-		} catch (ChefInvalidAttributesException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
+		} catch (NullOrEmptyAttributeException | RecipeWithoutChefException | RecipeWithoutIngredientsException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 	}
