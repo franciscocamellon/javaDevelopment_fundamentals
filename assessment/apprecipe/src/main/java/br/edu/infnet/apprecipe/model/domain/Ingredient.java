@@ -1,13 +1,24 @@
 package br.edu.infnet.apprecipe.model.domain;
 
+import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
+
 public abstract class Ingredient {
 	
 	private String name;
 	private float weight;
 	private float cost;
 	
-	public Ingredient(String name, float weight, float cost) {
-		this.name = name;
+	public Ingredient(String name, float weight, float cost) throws ZeroCostException {
+		
+		if (cost == 0) {
+			throw new ZeroCostException("O custo do produto está zerado!");
+		}
+		
+		if (cost < 0) {
+			throw new ZeroCostException("O custo do produto está negativo!");
+		}
+		
+		this.name = name;	
 		this.weight = weight;
 		this.cost = cost;
 	}

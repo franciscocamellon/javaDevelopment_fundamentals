@@ -3,58 +3,85 @@ package br.edu.infnet.apprecipe.model.tests;
 import br.edu.infnet.apprecipe.model.domain.AnimalBased;
 import br.edu.infnet.apprecipe.model.domain.PlantBased;
 import br.edu.infnet.apprecipe.model.domain.Spice;
+import br.edu.infnet.apprecipe.model.exceptions.ZeroCostException;
 
 public class IngredientTest {
 
 	public static void main(String[] args) {
 
-		Spice sp1 = new Spice("Páprica", 0.1f, 1, "Avermelhado");
-		sp1.setSpiceForm("Moído");
-		sp1.setTaste("Agridoce");
-		System.out.println(sp1);
+		try {
+			Spice sp1 = new Spice("Páprica", 0.1f, 1, "Avermelhado");
+			sp1.setSpiceForm("Moído");
+			sp1.setTaste("Agridoce");
+			} catch (ZeroCostException e) {
+				System.out.println("[ERRO] " + e.getMessage());
+			}
+			
+			try {
+			Spice sp2 = new Spice("Pimenta do reino", 0.15f, -0.5f, "Incolor");
+			sp2.setSpiceForm("Moído");
+			sp2.setTaste("Apimentado");
+			} catch (ZeroCostException e) {
+				System.out.println("[ERRO] " + e.getMessage());
+			}
+			
+			try {
+			Spice sp3 = new Spice("Aniz estrelado", 0.20f, 0, "Incolor");
+			sp3.setSpiceForm("Fresco");
+			sp3.setTaste("Azedo");
+			} catch (ZeroCostException e) {
+				System.out.println("[ERRO] " + e.getMessage());
+			}
 		
-		Spice sp2 = new Spice("Pimenta do reino", 0.15f, 0.5f, "Incolor");
-		sp2.setSpiceForm("Moído");
-		sp2.setTaste("Apimentado");
-		System.out.println(sp2);
+		try {
+			PlantBased pb1;
+			pb1 = new PlantBased("Alho poró", 0.2f, 20, false);
+			pb1.setForm("Cru");
+			pb1.setUnit("Maço");
+		} catch (ZeroCostException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
-		Spice sp3 = new Spice("Aniz estrelado", 0.20f, 1, "Incolor");
-		sp3.setSpiceForm("Fresco");
-		sp3.setTaste("Azedo");
-		System.out.println(sp3);
+		try {
+			PlantBased pb2 = new PlantBased("Brócolis", 1, 15, true);
+			pb2.setForm("Cru");
+			pb2.setUnit("Maço");
+		} catch (ZeroCostException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
-		PlantBased pb1 = new PlantBased("Alho poró", 0.2f, 20, false);
-		pb1.setForm("Cru");
-		pb1.setUnit("Maço");
-		System.out.println(pb1);
+		try {
+			PlantBased pb3 = new PlantBased("Batata", 1.5f, 10, false);
+			pb3.setForm("Pré-cozido");
+			pb3.setUnit("Kilo");
+		} catch (ZeroCostException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
-		PlantBased pb2 = new PlantBased("Brócolis", 1, 15, true);
-		pb2.setForm("Cru");
-		pb2.setUnit("Maço");
-		System.out.println(pb2);
+		try {
+			AnimalBased ab1;
+			ab1 = new AnimalBased("Salmão", 2, 20, false);
+			ab1.setOrigin("Pesca");
+			ab1.setMeatForm("Fresco");
+		} catch (ZeroCostException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
-		PlantBased pb3 = new PlantBased("Batata", 1, 10, false);
-		pb3.setForm("Pré-cozido");
-		pb3.setUnit("Kilo");
-		System.out.println(pb3);
+		try {
+			AnimalBased ab2 = new AnimalBased("Javali", 2, 30, true);
+			ab2.setOrigin("Caça");
+			ab2.setMeatForm("Congelado");
+		} catch (ZeroCostException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
-		AnimalBased ab1 = new AnimalBased("Salmão", 2, 20, false);
-		ab1.setOrigin("Pesca");
-		ab1.setMeatForm("Fresco");
-		ab1.toString();
-		System.out.println(ab1);
-		
-		AnimalBased ab2 = new AnimalBased("Javali", 2, 20, true);
-		ab2.setOrigin("Caça");
-		ab2.setMeatForm("Congelado");
-		ab2.toString();
-		System.out.println(ab2);
-		
-		AnimalBased ab3 = new AnimalBased("Wagyu", 1, 200, false);
-		ab3.setOrigin("Manejo");
-		ab3.setMeatForm("Refrigerado");
-		ab3.toString();
-		System.out.println(ab3);
+		try {
+			AnimalBased ab3 = new AnimalBased("Wagyu", 1, 200, false);
+			ab3.setOrigin("Manejo");
+			ab3.setMeatForm("Refrigerado");
+		} catch (ZeroCostException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 
 	}
 
