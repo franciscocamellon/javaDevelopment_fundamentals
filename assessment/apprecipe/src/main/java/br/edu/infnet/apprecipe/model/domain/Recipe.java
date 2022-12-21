@@ -39,6 +39,11 @@ public class Recipe {
 		}
 	}
 	
+	public String createFileLine() {
+		
+		return "Nome: " + this.getName() + ";" + "Chef: " + this.getChef() + ";" + "Qtde: " + this.getIngredients().size() + "\r\n";
+	}
+	
 	@Override
 	public String toString() {
 
