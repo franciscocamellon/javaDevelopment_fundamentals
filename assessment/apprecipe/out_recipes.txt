@@ -1,1 +1,1 @@
-Nome: Lasanha a bolonhesa;Chef: Joao;Almeria;joao.almeria@email.com;Qtde: 9
+Receita: Lasanha a bolonhesa;Restaurante: Almeria;Chef requisitante: Joao;Qtde de ingredientes: 9;Custo da receita: R$334.37503

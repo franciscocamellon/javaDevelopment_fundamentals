@@ -39,9 +39,24 @@ public class Recipe {
 		}
 	}
 	
+	private float recipeTotalCostCalculator(List<Ingredient> ingredients) {
+		
+		float cost = 0;
+		
+		for (Ingredient ingredient : ingredients) {
+			
+			cost = cost + ingredient.costCalculator();
+		}
+		return cost;
+	}
+	
 	public String createFileLine() {
 		
-		return "Nome: " + this.getName() + ";" + "Chef: " + this.getChef() + ";" + "Qtde: " + this.getIngredients().size() + "\r\n";
+		return "Receita: " + this.getName() + ";" + 
+				"Restaurante: " + this.getChef().getRestaurant() + ";" + 
+				"Chef requisitante: " + this.getChef().getName() + ";" + 
+				"Qtde de ingredientes: " + this.getIngredients().size() + ";" + 
+				"Custo da receita: R$" + this.recipeTotalCostCalculator(ingredients) + "\r\n";
 	}
 	
 	@Override
